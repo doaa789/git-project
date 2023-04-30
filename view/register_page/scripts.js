@@ -17,3 +17,57 @@ window.onclick = function(event) {
         sign_in_modal.style.display = "none";
     }
 }
+
+// Validate email
+
+var email_field=document.getElementById('email_field');
+email_field.onchange =function(){
+  ValidateEmail(email_field)
+}
+
+function ValidateEmail(email){
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if(!email.value.match(mailformat)){
+  alert("invalid email address !! please enter a new email ");
+  }
+}
+
+// Validate length of password
+var thePassword="";
+
+var userPassword=document.getElementsByName('psw');
+for (var i = 0; i < userPassword.length; i++) {
+  ValidatePassword(userPassword[i]);
+}
+
+function ValidatePassword(password){
+  password.onchange =function(){
+    if(password.value.length < 4) {
+    alert("password must have more than 4 character !! try again");
+    }
+    else{
+      thePassword=password.value;
+    }
+  } 
+};
+
+// Validate repeat password
+var repeatPassword=document.getElementsByName('psw-repeat');
+for (var i = 0; i < repeatPassword.length; i++) {
+  ValidateRepeatPassword(repeatPassword[i]);
+}
+
+function ValidateRepeatPassword(password){
+  password.onchange =function(){
+    if(password.value != thePassword) {
+    alert("repeat password is not like password");
+    }
+  }
+};
+
+
+
+
+
+
+
