@@ -151,3 +151,16 @@ hr {
     color: red;
     cursor: pointer;
   }
+
+  .alert {
+    padding: 20px;
+    background-color: #ec5247;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+  }
+  
+  
+  
+  

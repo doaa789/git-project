@@ -18,7 +18,10 @@ window.onclick = function(event) {
     }
 }
 
-// Validate email
+// Check and Validate email
+
+var errorAlert=document.getElementById('alert');
+var userEmail = "";
 
 var email_field=document.getElementById('email_field');
 email_field.onchange =function(){
@@ -26,6 +29,15 @@ email_field.onchange =function(){
 }
 
 function ValidateEmail(email){
+  userEmail =email_field.value;
+  if(userEmail){
+    errorAlert.style.opacity = "0";
+    setTimeout(function(){ errorAlert.style.display = "none"; }, 200);
+  }
+  else{
+    errorAlert.style.opacity = "1";
+    setTimeout(function(){ errorAlert.style.display = "block"; }, 200);
+  }
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if(!email.value.match(mailformat)){
   alert("invalid email address !! please enter a new email ");
@@ -64,6 +76,10 @@ function ValidateRepeatPassword(password){
     }
   }
 };
+
+
+
+
 
 
 
